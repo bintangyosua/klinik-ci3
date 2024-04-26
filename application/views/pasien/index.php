@@ -14,10 +14,6 @@
 			<th>Tanggal Lahir</th>
 			<th>Alamat</th>
 			<th>User</th>
-			<th>Tanggal Kunjungan</th>
-			<th>Keluhan</th>
-			<th>Nama Dokter</th>
-			<th>Nama Poli</th>
 			<th>Aksi</th>
 		</tr>
 	</thead>
@@ -29,10 +25,6 @@
 				<td><?= $item->tanggal_lahir ?></td>
 				<td><?= $item->alamat ?></td>
 				<td><?= $item->username ?></td>
-				<td><?= $item->tanggal_kunjungan ?></td>
-				<td><?= $item->keluhan ?></td>
-				<td><?= $item->nama_dokter ?></td>
-				<td><?= $item->nama_poli ?></td>
 				<td>
 					<a style="text-decoration: none; color: black; cursor: pointer;" href="<?= site_url("/pasien/edit/") ?><?= $item->id_pasien ?>">Edit</a>
 					|
@@ -74,10 +66,6 @@
 			<th>Tanggal Lahir</th>
 			<th>Alamat</th>
 			<th>User</th>
-			<th>Tanggal Kunjungan</th>
-			<th>Keluhan</th>
-			<th>Nama Dokter</th>
-			<th>Nama Poli</th>
 			<th>Aksi</th>
 		</tr>
 	</tfoot>
