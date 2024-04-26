@@ -66,3 +66,24 @@ $route['pasien/add'] = 'pasien/add';
 $route['pasien/edit/(:num)'] = 'pasien/edit/$1';
 $route['pasien/update'] = 'pasien/update';
 $route['pasien/delete'] = 'pasien/delete';
+
+// ========================== Dokter ==========================
+$route['dokter/create'] = 'dokter/create';
+$route['dokter/add'] = 'dokter/add';
+$route['dokter/edit/(:num)'] = 'dokter/edit/$1';
+$route['dokter/update'] = 'dokter/update';
+$route['dokter/delete'] = 'dokter/delete';
+
+// ========================== Kunjungan ==========================
+$route['kunjungan/create'] = 'kunjungan/create';
+$route['kunjungan/add'] = 'kunjungan/add';
+$route['kunjungan/edit/(:num)'] = 'kunjungan/edit/$1';
+$route['kunjungan/update'] = 'kunjungan/update';
+$route['kunjungan/delete'] = 'kunjungan/delete';
+
+// ========================== Poli ==========================
+$route['poli/create'] = 'poli/create';
+$route['poli/add'] = 'poli/add';
+$route['poli/edit/(:num)'] = 'poli/edit/$1';
+$route['poli/update'] = 'poli/update';
+$route['poli/delete'] = 'poli/delete';

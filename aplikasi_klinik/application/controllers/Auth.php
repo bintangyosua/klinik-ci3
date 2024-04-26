@@ -33,7 +33,7 @@ class Auth extends CI_Controller
 
 		$id = $this->users_model->insert($this->input->post());
 		$this->session->set_userdata([
-			'id' => $id,
+			'id_user' => $id,
 			'username' => $this->input->post('username'),
 			'logged_in' => true
 		]);
@@ -72,7 +72,7 @@ class Auth extends CI_Controller
 		$user = $this->users_model->findByUsername($username);
 
 		$this->session->set_userdata([
-			'id' => $user->id,
+			'id_user' => $user->id_user,
 			'username' => $user->username,
 			'logged_in' => true
 		]);
@@ -83,7 +83,7 @@ class Auth extends CI_Controller
 
 	public function logout()
 	{
-		$this->session->unset_userdata(['id', 'username', 'logged_in']);
+		$this->session->unset_userdata(['id_user', 'username', 'logged_in']);
 		$this->session->set_flashdata('success', "Berhasil logout");
 		redirect(site_url("/"));
 	}

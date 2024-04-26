@@ -24,6 +24,8 @@ class Pasien extends CI_Controller
 
 	public function create()
 	{
+		if (!$this->session->userdata('id_user')) redirect(site_url('/auth/login'));
+
 		$users = $this->users_model->findAll();
 
 		$this->load->view('templates/header', [
@@ -37,6 +39,8 @@ class Pasien extends CI_Controller
 
 	public function add()
 	{
+		if (!$this->session->userdata('id_user')) redirect(site_url('/auth/login'));
+
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
@@ -57,6 +61,8 @@ class Pasien extends CI_Controller
 
 	public function edit($slug)
 	{
+		if (!$this->session->userdata('id_user')) redirect(site_url('/auth/login'));
+
 		$pasien = $this->pasien_model->findById($slug);
 		$users = $this->users_model->findAll();
 
@@ -74,6 +80,8 @@ class Pasien extends CI_Controller
 
 	public function update()
 	{
+		if (!$this->session->userdata('id_user')) redirect(site_url('/auth/login'));
+
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
@@ -92,19 +100,21 @@ class Pasien extends CI_Controller
 
 		if (!$pasien) show_404();
 
-		$this->session->set_flashdata('success', "Berhasil mengedit pasien baru");
+		$this->session->set_flashdata('success', "Berhasil mengedit pasien");
 		redirect(site_url('/pasien'));
 	}
 
 	public function delete()
 	{
+		if (!$this->session->userdata('id_user')) redirect(site_url('/auth/login'));
+
 		$id = $this->input->post('id');
 		$pasien = $this->pasien_model->findById($id);
 
 		if (!$pasien) show_404();
 
 		$this->pasien_model->deleteById($id);
-		$this->session->set_flashdata('error', "Berhasil menghapus pasien baru");
+		$this->session->set_flashdata('error', "Berhasil menghapus pasien");
 		redirect(site_url("/pasien"));
 	}
 }

@@ -37,11 +37,17 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<ul class="navbar-nav">
-					<!-- <li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="#">Home</a>
-					</li> -->
+					<li class="nav-item">
+						<a class="nav-link" href="<?= site_url('/kunjungan') ?>">Kunjungan</a>
+					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="<?= site_url('/pasien') ?>">Pasien</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= site_url('/dokter') ?>">Dokter</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= site_url('/poli') ?>">Poli</a>
 					</li>
 					<?php if (!$this->session->userdata('username')) : ?>
 						<li class="nav-item">
@@ -53,6 +59,9 @@
 					<?php else : ?>
 						<li class="nav-item">
 							<a class="nav-link" href="<?= site_url('/auth/logout') ?>">Logout</a>
+						</li>
+						<li class="nav-item">
+							<span class="nav-link">Halo <?= $this->session->userdata('username') ?></span>
 						</li>
 					<?php endif ?>
 				</ul>
@@ -80,8 +89,4 @@
 					<?php endforeach ?>
 				</ul>
 			</div>
-		<?php endif ?>
-
-		<?php if ($this->session->userdata('id')) : ?>
-			<h1>Halo <?= $this->session->userdata('nama') ?></h1>
 		<?php endif ?>

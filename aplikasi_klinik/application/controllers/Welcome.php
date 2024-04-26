@@ -26,10 +26,26 @@ class Welcome extends CI_Controller
 	 */
 	public function index()
 	{
+		$sql = "
+		SELECT tanggal_kunjungan, COUNT(*) AS total_kunjungan
+		FROM kunjungan
+		GROUP BY tanggal_kunjungan
+		UNION ALL
+		SELECT tanggal_kunjungan, COUNT(*) AS total_kunjungan
+		FROM kunjungan
+		GROUP BY tanggal_kunjungan
+		ORDER BY tanggal_kunjungan DESC
+		LIMIT 4;
+		";
+
+		$data = $this->db->query($sql)->result();
+
 		$this->load->view('templates/header', [
 			"title" => "Sistem Manajemen Pasien",
 		]);
-		$this->load->view('home', []);
+		$this->load->view('home', [
+			"data" => $data
+		]);
 		$this->load->view('templates/footer');
 	}
 }

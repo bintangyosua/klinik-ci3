@@ -18,20 +18,7 @@
 		<textarea class="form-control" id="alamat" aria-describedby="alamatHelp" rows="3" name="alamat"><?= $pasien->alamat ?></textarea>
 		<div id="alamatHelp" class="form-text">masukkan alamat pasien.</div>
 	</div>
-	<div class="mb-3">
-		<label for="id_user" class="form-label">Nama User</label>
-		<select class="select-user form-select form-select-lg mb-3 p-4" name="id_user" aria-label="Large select example">
-			<option value="">Pilih user</option>
-			<?php foreach ($users as $item) : ?>
-				<?php if ($pasien->id_user === $item->id_user) : ?>
-					<option value="<?= $item->id_user ?>" selected><?= $item->username ?></option>
-				<?php else : ?>
-					<option value="<?= $item->id_user ?>"><?= $item->username ?></option>
-				<?php endif ?>
-			<?php endforeach ?>
-		</select>
-		<div id="id_userHelp" class="form-text">User harus dipilih.</div>
-	</div>
+	<input type="hidden" name="id_user" value="<?= $pasien->id_user ?>">
 	<input type="hidden" name="id_pasien" value="<?= $pasien->id_pasien ?>">
 	<input type="submit" class="btn btn-primary">
 </form>
